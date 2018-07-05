@@ -1,9 +1,16 @@
 #ifndef __TIME_H__
 #define __TIME_H__
 
+#if defined(ARDUINO) && ARDUINO >= 100
+	#include "arduino.h"
+#else
+	#include "WProgram.h"
+#endif
+
 class Time
 {
 public:
+	Time();
 	Time(int hour, int minutes, int seconds, int date, int month, uint16_t year);
 	~Time();
 	
@@ -13,6 +20,13 @@ public:
 	int getDate();
 	int getMonth();
 	int getYear();
+	
+	void setSeconds(int value);
+	void setMinutes(int value);
+	void setHour(int value);
+	void setDate(int value);
+	void setMonth(int value);
+	void setYear(uint16_t value);
 	
 private:
 	int seconds = 0;

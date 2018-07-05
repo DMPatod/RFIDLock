@@ -1,5 +1,3 @@
-// SDOperations.h
-
 #ifndef _SDOPERATIONS_h
 	#define _SDOPERATIONS_h
 
@@ -23,9 +21,9 @@ class SDOperations
 
 
  public:
-	SDOperations();
-	static boolean init();
-	static boolean searchTAG(char *TAG); 
+	virtual SDOperations();
+	boolean init();
+	boolean searchTAG(char *TAG); 
 private:
 	String fileName = "IDList.txt";
 	uint8_t readedTAG[5];

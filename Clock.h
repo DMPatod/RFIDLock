@@ -11,6 +11,10 @@
 	#include <Wire.h>
 #endif
 
+#ifndef __TIME_H__
+	#include "Time.h"
+#endif
+
 #define RTCaddress 0x68
 #define Seconds_Register 0x00
 #define Minutes_Register 0x01
@@ -21,17 +25,19 @@
 #define Year_Register 0x06
 #define Status_Register 0x0f
 
+#define MSGSIZE 6
+
 class Clock
 {
- protected:
- 
- private:
-
- public:
+private:
+	static int DECtoBCD(int value);
+	static int BCDtoDEC(int value);
+public:
 	Clock();
-	void setTime(int hour, int minutes, int seconds, int date, int month, uint16_t year);
 	
-	void init();
+	static void init();
+	static void setTime(int hour, int minutes, int seconds, int date, int month, uint16_t year);
+	static Time readTime();
 };
 
 #endif

@@ -68,9 +68,10 @@
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
       <Value>../../../RFIDLock</Value>
-      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
-      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src/utility</Value>
       <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Users/danie/Documents/Arduino/libraries/SD/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
       <Value>C:/Users/danie/Documents/Arduino/libraries</Value>
       <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
@@ -106,9 +107,10 @@
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
       <Value>../../../RFIDLock</Value>
-      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
-      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src/utility</Value>
       <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Users/danie/Documents/Arduino/libraries/SD/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
       <Value>C:/Users/danie/Documents/Arduino/libraries</Value>
       <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
@@ -157,9 +159,10 @@
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
       <Value>../../../RFIDLock</Value>
-      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
-      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src/utility</Value>
       <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Users/danie/Documents/Arduino/libraries/SD/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
       <Value>C:/Users/danie/Documents/Arduino/libraries</Value>
       <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
@@ -195,9 +198,10 @@
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
       <Value>../../../RFIDLock</Value>
-      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
-      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src/utility</Value>
       <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Users/danie/Documents/Arduino/libraries/SD/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
       <Value>C:/Users/danie/Documents/Arduino/libraries</Value>
       <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
