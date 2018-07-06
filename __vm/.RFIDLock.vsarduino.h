@@ -21,7 +21,12 @@
 #define ARDUINO_ARCH_AVR
 //
 //
+int convertASCtoINT(uint8_t value);
+boolean RDMRead();
+boolean decodeRFID();
 
 #include "pins_arduino.h" 
 #include "arduino.h"
 #include "RFIDLock.ino"
+#include "Converters.ino"
+#include "RDM6300Funcs.ino"
