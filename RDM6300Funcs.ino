@@ -57,3 +57,11 @@ boolean decodeRFID()
 		return false;
 	}
 }
+
+void printTAG(uint8_t *TAG) {
+	for (int i = 0; i < 5; i++) {
+		Serial.print(TAG[i], HEX);
+		Serial.print(" ");
+	}
+	Serial.println();
+}

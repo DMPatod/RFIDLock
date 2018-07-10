@@ -1,6 +1,4 @@
-#include "SDOperations.h"
-
-boolean SDOperations::init()
+boolean SDinit()
 {
 	if (!SD.begin(4))
 	{
@@ -9,15 +7,17 @@ boolean SDOperations::init()
 	return true;
 }
 
-boolean SDOperations::searchTAG(char *TAG)
+boolean searchTAG(uint8_t *TAG)
 {
-	boolean foundState = false;
+	boolean foundState = false;	//To Return
 	
 	File listFile = SD.open(fileName,FILE_READ);
 	int counter = -1;
 	boolean section = false;	//False for TAG section and True for Name section
-
+	
 	uint8_t bufferTAG[10];
+	uint8_t *readedTAG;
+	char readedName[25];
 	
 	if (listFile)
 	{
@@ -26,38 +26,38 @@ boolean SDOperations::searchTAG(char *TAG)
 			if (!section)
 			{
 				uint8_t readVal = listFile.read();
-				if (readVal == 0x2A)
+				if (readVal == 0x2A)	//0x2A => '*'
 				{
 					counter = 0;
 				}
-				else if (readVal == 0x23)
+				else if (readVal == 0x23)	//0x23 => '#'
 				{
+					//Reset Counter AND change section
 					counter = -1;
 					section = true;
 					
-					decode(bufferTAG);
-					
+					readedTAG = decodeBuffer(bufferTAG);
 					
 					if ((TAG[0] == readedTAG[0]) && (TAG[1] == readedTAG[1]) && (TAG[2] == readedTAG[2]) && (TAG[3] == readedTAG[3]) && (TAG[4] == readedTAG[4]))
 					{
 						foundState = true;
 					}
+					
 				}
 				else if (counter >= 0)
 				{
 					bufferTAG[counter++] = readVal;
 				}
-				
 			}
 			else
 			{
 				byte readVal = listFile.read();
 				
-				if (readVal == 0x23)
+				if (readVal == 0x23)	//0x23 => '#'
 				{
 					counter = 0;
 				}
-				else if (readVal == 0x38)
+				else if (readVal == 0x3B)	//0x38 => ';'
 				{
 					if (foundState)
 					{
@@ -72,7 +72,7 @@ boolean SDOperations::searchTAG(char *TAG)
 				}
 				else if (counter >= 0)
 				{
-					readedName[counter++] = readVal;
+					readedName[counter++] = readedTAG;
 				}
 			}
 		}
@@ -82,28 +82,22 @@ boolean SDOperations::searchTAG(char *TAG)
 	}
 	else
 	{
-		return false;
+		Serial.println("Unable to Read File");
+		return foundState;
 	}
 }
 
-void SDOperations::decode(uint8_t *bufferPointer)
+uint8_t* decodeBuffer(char* buffer)
 {
+	static uint8_t tempTAG[5];
+	
 	for (int i = 0, y = 0; i < 10; i++)
 	{
-		uint8_t auxLeft = convertASCtoINT(bufferPointer[i++]);
-		uint8_t auxRight = convertASCtoINT(bufferPointer[i]);
+		uint8_t auxLeft = convertASCtoINT(buffer[i++]);
+		uint8_t auxRight = convertASCtoINT(buffer[i]);
 		
-		readedTAG[y++] = (auxLeft << 4) | auxRight;
+		tempTAG[y++] = (auxLeft << 4) | auxRight;
 	}
-}
-
-int SDOperations::convertASCtoINT(uint8_t value)
-{
-	if (value - 48 > 9) {
-		value -= 55;
-	}
-	else {
-		value -= 48;
-	}
-	return value;
+	
+	return tempTAG;
 }

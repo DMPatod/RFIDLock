@@ -24,9 +24,14 @@
 int convertASCtoINT(uint8_t value);
 boolean RDMRead();
 boolean decodeRFID();
+void printTAG(uint8_t *TAG);
+boolean SDinit();
+boolean searchTAG(uint8_t *TAG);
+uint8_t* decodeBuffer(char* buffer);
 
 #include "pins_arduino.h" 
 #include "arduino.h"
 #include "RFIDLock.ino"
 #include "Converters.ino"
 #include "RDM6300Funcs.ino"
+#include "SDFuncs.ino"
